@@ -14,7 +14,7 @@
             android:layout_marginEnd="@dimen/_20sdp"
             android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="start"
-            android:text="Login fragment"
+            android:text="Login fragment123"
             android:textColor="@color/black"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold"
