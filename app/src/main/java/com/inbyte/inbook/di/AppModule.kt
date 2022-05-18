@@ -1,11 +1,13 @@
 package com.inbyte.inbook.di
 
 import com.inbyte.inbook.data.remote.EnvironmentConfig
+import com.inbyte.inbook.data.remote.api.ApiService
+import com.inbyte.inbook.data.remote.repository.LoginRepository
+import com.inbyte.inbook.data.remote.repository_impl.LoginRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttp
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -46,4 +48,17 @@ object AppModule {
             .client(okHttpClient)
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideApiService(retrofit: Retrofit):ApiService{
+        return retrofit.create(ApiService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLoginRepository(apiService: ApiService): LoginRepository {
+        return LoginRepositoryImpl(apiService)
+    }
+
 }

@@ -41,15 +41,6 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel> : AppCo
             onBackPressed()
         }
 
-/*        val networkConnection = NetworkConnection(applicationContext)
-        networkConnection.observe(this) {
-            if (it) {
-                showToastMessage("connected")
-            } else {
-                showToastMessage("Disconnected")
-            }
-        }*/
-
         connectivityManger.registerConnectionObserver(this)
         connectivityManger.networkAvailable.observe(this) { connected ->
             if (isNetwork && connected) {
@@ -81,6 +72,7 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel> : AppCo
         val dialogClickListner = DialogInterface.OnClickListener { _, which ->
             when (which) {
                 DialogInterface.BUTTON_POSITIVE -> {
+                    //do nothing
                 }
             }
         }
@@ -100,6 +92,7 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel> : AppCo
         val dialogClickListner = DialogInterface.OnClickListener { _, which ->
             when (which) {
                 DialogInterface.BUTTON_POSITIVE -> {
+                    //do nothing
                 }
             }
         }
