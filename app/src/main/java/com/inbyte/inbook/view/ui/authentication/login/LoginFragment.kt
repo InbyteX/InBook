@@ -5,9 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.inbyte.inbook.data.model.auth.LoginModel
+import com.inbyte.inbook.data.remote.repository.LoginRepository
 import com.inbyte.inbook.databinding.FragmentLoginBinding
 import com.inbyte.inbook.view.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener {
 
     val viewModel: LoginViewModel by viewModels()
@@ -42,16 +46,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
                     showBasicAlert("invalid Password or Email")
 
                 }
-
-               /* val validEmail = viewModel.checkEmail(binding.emailTextFiled.editText?.text.toString())
-                val validPassword = viewModel.checkPassword(binding.passwordTextFiled.editText?.text.toString())
-                if(validPassword && validEmail){
-                    showBasicAlert("Login successful ")
-                }
-                else{
-                    showBasicAlert("invalid Password or Email")
-
-                }*/
             }
         }
     }

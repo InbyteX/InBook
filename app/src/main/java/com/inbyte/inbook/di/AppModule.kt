@@ -1,9 +1,11 @@
 package com.inbyte.inbook.di
 
+import android.app.Application
 import com.inbyte.inbook.data.remote.EnvironmentConfig
 import com.inbyte.inbook.data.remote.api.ApiService
 import com.inbyte.inbook.data.remote.repository.LoginRepository
 import com.inbyte.inbook.data.remote.repository_impl.LoginRepositoryImpl
+import com.inbyte.inbook.view.ui.authentication.login.LoginViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,5 +62,11 @@ object AppModule {
     fun provideLoginRepository(apiService: ApiService): LoginRepository {
         return LoginRepositoryImpl(apiService)
     }
+
+  @Singleton
+  @Provides
+  fun provideLogin(repository: LoginRepository,app:Application):LoginViewModel{
+      return  LoginViewModel(repository,app)
+  }
 
 }

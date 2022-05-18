@@ -19,11 +19,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    app: Application
+    private val  loginRepository: LoginRepository,
+    app:Application
 ) : BaseViewModel(app) {
 
-    @Inject
-    lateinit var loginRepository:LoginRepository
 
     private val result = MutableLiveData<String>()
     val loginResponse: LiveData<String> = result

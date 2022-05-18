@@ -13,7 +13,7 @@ class LoginRepositoryImpl @Inject constructor(private val apiService: ApiService
     override suspend fun loginApi(input: LoginModel): ApiResult<String> {
 
         return RetrofitUtlis.getResponse({
-            apiService.getLogin(input)
+            apiService.getLogin("crazybyte",input)
         }, "SomeThing went wrong")
     }
 

@@ -21,7 +21,7 @@ object EnvironmentConfig {
     fun getInBookURl(): String =
         when (environment) {
             Environment.QA -> ""
-            Environment.DEV -> "http://localhost:8080/api/"
+            Environment.DEV -> "http://192.168.29.7:8080/api/"
             Environment.PROD -> ""
         }
 

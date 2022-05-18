@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
 @AndroidEntryPoint
-class LandingActivity : BaseActivity<ActivityLandingBinding,LandingViewModel>() {
+class LandingActivity() : BaseActivity<ActivityLandingBinding,LandingViewModel>() {
 
     override val viewModel: LandingViewModel by viewModels()
 
