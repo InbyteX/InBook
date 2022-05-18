@@ -23,12 +23,17 @@ class WelcomeFragment : BaseFragment<FragmentWelcomeBinding>(), View.OnClickList
 
     override fun initCtrl() {
         binding.nextBtn.setOnClickListener(this)
+        binding.btnRegister.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.nextBtn -> {
+            binding.nextBtn.id -> {
                 findNavController().navigate(R.id.action_welcomeFragment_to_loginFragment)
+
+            }
+            binding.btnRegister.id -> {
+                findNavController().navigate(R.id.action_welcomeFragment_to_registerFragment)
             }
         }
     }

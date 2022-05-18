@@ -10,7 +10,6 @@ import com.inbyte.inbook.databinding.FragmentLoginBinding
 import com.inbyte.inbook.view.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener {
 
     val viewModel : LoginViewModel by viewModels()

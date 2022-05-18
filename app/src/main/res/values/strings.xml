@@ -12,7 +12,6 @@
     <string name="too_many_login_attempt">You have incorrectly logged in too many times and your account is suspended for a few minutes.</string>
     <string name="sure_wants_logout">Are you sure wants to logout?</string>
     <string name="logout">Logout</string>
-  
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>

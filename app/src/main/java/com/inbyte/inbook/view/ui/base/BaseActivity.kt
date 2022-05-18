@@ -10,12 +10,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.inbyte.inbook.R
 import com.inbyte.inbook.databinding.DialogLoaderBinding
+import com.inbyte.inbook.di.ConnectivityManger
+import javax.inject.Inject
 
 abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel> : AppCompatActivity() {
+
+    @Inject
+    lateinit var connectivityManger: ConnectivityManger
 
     protected lateinit var binding: B
     private lateinit var baseBinding: DialogLoaderBinding
     protected abstract val viewModel: VM
+    private var isNetwork = true
 
     override fun setContentView(layoutResID: Int) {
         baseBinding = DataBindingUtil.inflate(layoutInflater, R.layout.dialog_loader, null, false)
@@ -34,6 +40,30 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel> : AppCo
         baseBinding.btBack.setOnClickListener {
             onBackPressed()
         }
+
+/*        val networkConnection = NetworkConnection(applicationContext)
+        networkConnection.observe(this) {
+            if (it) {
+                showToastMessage("connected")
+            } else {
+                showToastMessage("Disconnected")
+            }
+        }*/
+
+        connectivityManger.registerConnectionObserver(this)
+        connectivityManger.networkAvailable.observe(this) { connected ->
+            if (isNetwork && connected) {
+                //nothing
+            } else {
+                isNetwork = connected
+                if (connected) {
+                    showToastMessage("connected")
+                } else {
+                    showToastMessage("Disconnected")
+                }
+            }
+        }
+
     }
 
     open fun showToastMessage(message: String, isShortMessage: Boolean = true) {
@@ -51,7 +81,6 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel> : AppCo
         val dialogClickListner = DialogInterface.OnClickListener { _, which ->
             when (which) {
                 DialogInterface.BUTTON_POSITIVE -> {
-
                 }
             }
         }
@@ -71,7 +100,6 @@ abstract class BaseActivity<B : ViewDataBinding, out VM : BaseViewModel> : AppCo
         val dialogClickListner = DialogInterface.OnClickListener { _, which ->
             when (which) {
                 DialogInterface.BUTTON_POSITIVE -> {
-
                 }
             }
         }

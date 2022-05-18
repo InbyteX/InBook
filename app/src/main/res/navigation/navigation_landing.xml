@@ -13,10 +13,27 @@
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.inbyte.inbook.view.ui.authentication.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login"/>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.inbyte.inbook.view.ui.authentication.register.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_userRegisterFragment"
+            app:destination="@id/userRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userRegisterFragment"
+        android:name="com.inbyte.inbook.view.ui.authentication.userregister.UserRegisterFragment"
+        android:label="UserRegisterFragment"
+        tools:layout="@layout/fragment_user_register"/>
 </navigation>
