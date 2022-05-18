@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.inbyte.inbook.view.ui.login.LoginFragment"
+        android:name="com.inbyte.inbook.view.ui.authentication.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login"/>
 </navigation>

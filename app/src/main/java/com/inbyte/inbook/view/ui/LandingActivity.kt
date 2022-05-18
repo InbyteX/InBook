@@ -23,7 +23,7 @@ class LandingActivity : BaseActivity<ActivityLandingBinding,LandingViewModel>() 
 
     override fun initViewBinding() {
         viewModel.screenTitle.value ="login page" // todo: need to get from string resource
-        viewModel.screenTitleBarVisibility = true
+
     }
 
 

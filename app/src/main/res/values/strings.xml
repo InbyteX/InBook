@@ -12,8 +12,25 @@
     <string name="too_many_login_attempt">You have incorrectly logged in too many times and your account is suspended for a few minutes.</string>
     <string name="sure_wants_logout">Are you sure wants to logout?</string>
     <string name="logout">Logout</string>
-    <string name="login">Log in</string>
+  
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
+
+    // Login Page
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    //Register page
+    <string name="register">Register Your Company</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_type">Company Type</string>
+    <string name="next">Next</string>
+
+    //UserRegisterPage
+    <string name="user">Name</string>
+    <string name="role">Role</string>
+    <string name="finish">Finish</string>
+
 </resources>
