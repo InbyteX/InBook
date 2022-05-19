@@ -19,7 +19,7 @@ object RetrofitUtlis {
                 return ApiResult.success(result.body())
             } else {
                 val errorResponse = parseError(result)
-                ApiResult.error(errorResponse?.status_message?:defaultErrorMessage,errorResponse)
+                ApiResult.error(errorResponse?.message?:defaultErrorMessage,errorResponse)
             }
         } catch (e: Throwable) {
             e.printStackTrace()

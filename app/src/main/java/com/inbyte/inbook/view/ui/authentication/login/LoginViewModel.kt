@@ -4,13 +4,15 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.inbyte.inbook.data.model.ApiError
 import com.inbyte.inbook.data.model.ApiResult
-import com.inbyte.inbook.data.model.auth.LoginModel
+import com.inbyte.inbook.data.model.auth.request.LoginModel
+import com.inbyte.inbook.data.model.auth.response.LoginResponse
 import com.inbyte.inbook.data.remote.repository.LoginRepository
 import com.inbyte.inbook.utils.common.Utils
 import com.inbyte.inbook.view.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -19,8 +21,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val  loginRepository: LoginRepository,
-    app:Application
+    private val loginRepository: LoginRepository,
+    app: Application
 ) : BaseViewModel(app) {
 
 
@@ -36,7 +38,7 @@ class LoginViewModel @Inject constructor(
         return Utils.isPasswordValid(password)
     }
 
-    private fun loginApi(data: LoginModel): kotlinx.coroutines.flow.Flow<ApiResult<String>> {
+    private fun loginApi(data: LoginModel): kotlinx.coroutines.flow.Flow<ApiResult<LoginResponse>> {
         return flow {
             try {
                 emit(ApiResult.loading())
@@ -52,13 +54,13 @@ class LoginViewModel @Inject constructor(
 
     fun getLoginResponse(data: LoginModel) {
         viewModelScope.launch {
-            loginApi(data).collect {
+            loginApi(data).collectLatest {
                 when (it.status) {
                     ApiResult.Status.SUCCESS -> {
-                        result.value = it.data ?: "Something Went Wong"
+                        result.value = it.data?.message ?: "Something Went Wong"
                     }
                     ApiResult.Status.ERROR -> {
-                        result.value = it.data ?: "Something Went Wong"
+                        result.value = it.message ?: "Something Went Wong"
                     }
                     ApiResult.Status.LOADING -> {
                         // loader visibility

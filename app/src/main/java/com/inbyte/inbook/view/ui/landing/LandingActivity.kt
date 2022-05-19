@@ -1,16 +1,14 @@
-package com.inbyte.inbook.view.ui
+package com.inbyte.inbook.view.ui.landing
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.inbyte.inbook.R
 import com.inbyte.inbook.view.ui.base.BaseActivity
 import com.inbyte.inbook.databinding.ActivityLandingBinding
-import com.inbyte.inbook.databinding.DialogLoaderBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
-class LandingActivity() : BaseActivity<ActivityLandingBinding,LandingViewModel>() {
+class LandingActivity() : BaseActivity<ActivityLandingBinding, LandingViewModel>() {
 
     override val viewModel: LandingViewModel by viewModels()
 

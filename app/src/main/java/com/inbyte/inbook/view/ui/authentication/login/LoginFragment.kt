@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.inbyte.inbook.data.model.auth.LoginModel
-import com.inbyte.inbook.data.remote.repository.LoginRepository
+import com.inbyte.inbook.data.model.auth.request.LoginModel
 import com.inbyte.inbook.databinding.FragmentLoginBinding
 import com.inbyte.inbook.view.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,10 +40,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), View.OnClickListener
                     viewModel.loginResponse.observe(this) {
                         showBasicAlert(it)
                     }
-
                 } else {
                     showBasicAlert("invalid Password or Email")
-
                 }
             }
         }

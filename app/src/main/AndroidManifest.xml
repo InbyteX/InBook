@@ -15,7 +15,7 @@
         android:theme="@style/Theme.InBook"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.ui.LandingActivity"
+            android:name=".view.ui.landing.LandingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
